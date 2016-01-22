@@ -1,7 +1,9 @@
+import java.util.Optional;
+
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package}.resources;
+package ${package}.hello;
 
 import com.codahale.metrics.annotation.Timed;
 import no.cantara.dwsample.api.Planet;
@@ -18,9 +20,13 @@ import java.util.Optional;
 
 import static net.logstash.logback.argument.StructuredArguments.*;
 
-@Service
-public class HelloWorldResource implements no.cantara.dwsample.api.HelloWorldResource {
+@Controller
+@Path("/hello")
+@Api("/hello")
+@Produces({"application/json"})
+public class HelloWorldResource {
     private final static Logger log = LoggerFactory.getLogger(HelloWorldResource.class);
+    static String PATH = "/hello";
 
     private final String template;
     private final String defaultName;
@@ -36,8 +42,9 @@ public class HelloWorldResource implements no.cantara.dwsample.api.HelloWorldRes
     }
 
     @Timed
-    @Override
-    public Saying hello(Optional<String> name) {
+    @GET
+    @ApiOperation("Endpoint that will respond with hello and use the name provided as request parameter if any")
+    public Saying hello(@QueryParam("name") @ApiParam(defaultValue = "Mr. Smith") Optional<String> name) {
         log.trace("{} {} {}", v("method", HttpMethod.GET), v("path", HelloWorldResource.PATH), kv("name", name.orElse("null")));
         final String value = String.format(template, name.orElse(defaultName));
         log.trace("{}", kv("value", value));
@@ -47,7 +54,9 @@ public class HelloWorldResource implements no.cantara.dwsample.api.HelloWorldRes
     }
 
     @Timed
-    @Override
+    @POST
+    @ApiOperation("Post planetName and yourName and be greeted.")
+    @Consumes({"application/json"})
     public Saying hello(Planet planet) {
         log.trace("{} {} {}", v("method", HttpMethod.POST), v("path", HelloWorldResource.PATH), fields(planet));
         final String value = "Hello " + planet.getYourName() + " on planet " + planet.getPlanetName();

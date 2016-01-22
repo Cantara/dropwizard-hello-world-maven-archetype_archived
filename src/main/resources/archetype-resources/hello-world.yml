@@ -1,5 +1,6 @@
 
 server:
+  rootPath: ${applicationName}
   applicationConnectors:
     - type: http
       port: 8080
@@ -14,7 +15,7 @@ logging:
 
   loggers:
     ${package}: DEBUG
-    ${package}.resources.HelloWorldResource: TRACE
+    ${package}.hello.HelloWorldResource: TRACE
 
 # Logback's Time Based Rolling Policy - archivedLogFilenamePattern: /tmp/application-%d{yyyy-MM-dd}.log.gz
 # Logback's Size and Time Based Rolling Policy -  archivedLogFilenamePattern: /tmp/application-%d{yyyy-MM-dd}-%i.log.gz
@@ -42,6 +43,6 @@ logging:
       timeZone: Europe/Oslo
       maxFileSize: 10MB
 
-# <a comma separated string of the packages that contain your @Api annotated resources>
+# <a comma separated string of the packages that contain your @Api annotated hello>
 swagger:
   resourcePackage: ${package}

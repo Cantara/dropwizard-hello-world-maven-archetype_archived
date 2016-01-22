@@ -24,7 +24,7 @@ public class HelloWorldApplication extends Application<HelloWorldDropwizardConfi
 
     public static void main(String[] args) throws Exception {
         if (args.length == 0) {
-            args = new String[] {"server", "${applicationName}"};
+            args = new String[] {"server", "${applicationName}.yml"};
         }
         new HelloWorldApplication().run(args);
     }
