@@ -57,7 +57,10 @@
         <include>LICENSE</include>
         <include>hello-world.yml</include>
         <include>Dockerfile</include>
-        <include>.gitignore</include>
+        <include>PostInstallUpdates.bat</include>
+        <include>PostInstallUpdates.sh</include>
+        <include>run.bat</include>
+        <include>run.sh</include>
       </includes>
     </fileSet>
   </fileSets>

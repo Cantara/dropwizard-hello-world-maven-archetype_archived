@@ -24,14 +24,14 @@ public class HelloWorldApplication extends Application<HelloWorldDropwizardConfi
 
     public static void main(String[] args) throws Exception {
         if (args.length == 0) {
-            args = new String[] {"server", "hello-world.yml"};
+            args = new String[] {"server", "${applicationName}"};
         }
         new HelloWorldApplication().run(args);
     }
 
     @Override
     public String getName() {
-        return "hello-world";
+        return "${applicationName}";
     }
 
     @Override
