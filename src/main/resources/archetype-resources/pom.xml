@@ -8,7 +8,7 @@
         <version>4</version>
     </parent>
 
-    <name>${applcationName}</name>
+    <name>${applicationName}</name>
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
