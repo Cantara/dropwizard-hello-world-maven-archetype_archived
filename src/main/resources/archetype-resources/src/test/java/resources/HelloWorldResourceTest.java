@@ -63,7 +63,7 @@ public class HelloWorldResourceTest {
 
     @Test
     public void testGetPerson() {
-        assertThat(resources.client().target(no.cantara.dwsample.api}.api.HelloWorldResource.PATH).request().get(Saying.class))
+        assertThat(resources.client().target(no.cantara.dwsample.api.HelloWorldResource.PATH).request().get(Saying.class))
                 .isEqualTo(new Saying(3, "Hello, Mr. Smith!"));
         verify(counterService).next();
     }
