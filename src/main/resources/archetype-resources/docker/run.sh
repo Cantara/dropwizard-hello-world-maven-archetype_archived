@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker run -d --name=dropwizard-hello-world -p 21500-21599:21500-21599 cantara/dropwizard-hello-world
+docker run -d --name=${applicationName} -p 21500-21599:21500-21599 <your docker user>/${applicationName}

@@ -5,9 +5,9 @@ package ${package};
 
 import io.dropwizard.testing.ResourceHelpers;
 import io.dropwizard.testing.junit.DropwizardAppRule;
-import ${package}.api.HelloWorldResource;
-import ${package}.api.Planet;
-import ${package}.api.Saying;
+import no.cantara.dwsample.api.HelloWorldResource;
+import no.cantara.dwsample.api.Planet;
+import no.cantara.dwsample.api.Saying;
 import org.glassfish.jersey.client.JerseyClientBuilder;
 import org.junit.ClassRule;
 import org.junit.Test;

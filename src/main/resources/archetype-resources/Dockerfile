@@ -5,16 +5,16 @@ RUN yum -y update
 RUN yum -y install curl
 
 # Install Application
-RUN adduser hellouser
-ADD target/dropwizard-hello-world-application-*.jar /home/hellouser/dropwizard-hello-world-application.jar"
-ADD docker/hello-world.yml /home/hellouser/hello-world.yml
-RUN chown hellouser:hellouser /home/hellouser/hello-world.yml
-ADD docker/hello-world_override.properties /home/hellouser/hello-world-override.properties
-RUN chown hellouser:hellouser /home/hellouser/hello-world-override.properties
+RUN adduser ${applicationName}
+ADD target/${applicationName}-application-*.jar /home/${applicationName}/${applicationName}-application.jar"
+ADD docker/hello-world.yml /home/${applicationName}/${applicationName}.yml
+RUN chown ${applicationName}:${applicationName} /home/${applicationName}/${applicationName}.yml
+ADD docker/hello-world_override.properties /home/${applicationName}/${applicationName}-override.properties
+RUN chown ${applicationName}:${applicationName} /home/${applicationName}/${applicationName}.properties
 
 EXPOSE 21500:21599
 
-WORKDIR "/home/hellouser"
+WORKDIR "/home/${applicationName}"
 CMD [ \
     "java", \
     "-Xdebug", \
@@ -26,5 +26,5 @@ CMD [ \
     "-Dcom.sun.management.jmxremote.authenticate=false", \
     "-Djava.rmi.server.hostname=localhost", \
     "-jar", \
-    "dropwizard-hello-world-application.jar" \
+    "${applicationName}-application.jar" \
 ]

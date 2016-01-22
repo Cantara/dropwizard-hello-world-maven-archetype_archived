@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker build -t cantara/dropwizard-hello-world .
+docker build -t <your docker user>/${applicationName} .

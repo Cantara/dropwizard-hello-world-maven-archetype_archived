@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker exec -it dropwizard-hello-world bash
+docker exec -it ${applicationName} bash

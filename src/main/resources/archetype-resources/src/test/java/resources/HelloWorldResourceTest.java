@@ -11,7 +11,7 @@ import io.dropwizard.jackson.Jackson;
 import io.dropwizard.java8.jersey.OptionalMessageBodyWriter;
 import io.dropwizard.java8.jersey.OptionalParamFeature;
 import io.dropwizard.testing.junit.ResourceTestRule;
-import ${package}.api.Saying;
+import no.cantara.dwsample.api.Saying;
 import ${package}.domain.counter.CounterService;
 import org.hibernate.validator.HibernateValidator;
 import org.junit.After;
